@@ -13,22 +13,17 @@ public class PlayerCombat : MonoBehaviour
 
     public LayerMask enemyLayers;
 
-    
-    
-
     // Update is called once per frame
     void Update()
     {
         if(Time.time >= nextAttackTime)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;     
             }
         }
-
-        
     }
     
     void Attack()

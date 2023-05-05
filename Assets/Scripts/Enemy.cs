@@ -25,8 +25,6 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("ENEMY DEDED");
         Destroy(gameObject);
-
     }
 }

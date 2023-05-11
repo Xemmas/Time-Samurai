@@ -11,7 +11,6 @@ public class FreezeEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         enemiesJP = GameObject.FindGameObjectsWithTag("earlyJP");
         enemiesDS = GameObject.FindGameObjectsWithTag("dieselPunk");
         rbsJP = new Rigidbody2D[enemiesJP.Length];
@@ -43,12 +42,20 @@ public class FreezeEnemy : MonoBehaviour
         {
             foreach (Rigidbody2D rb in rbsJP)
             {
-                rb.constraints = RigidbodyConstraints2D.FreezePosition;
+                if(rb != null)
+                {
+                    rb.constraints = RigidbodyConstraints2D.FreezePosition;
+                }
+                
             }
 
             foreach (Rigidbody2D rb in rbsDS)
             {
-                rb.constraints = RigidbodyConstraints2D.None;
+                if(rb != null)
+                {
+                    rb.constraints = RigidbodyConstraints2D.None;
+                }
+                
             }
         }
 
@@ -57,12 +64,18 @@ public class FreezeEnemy : MonoBehaviour
         {
             foreach (Rigidbody2D rb in rbsDS)
             {
-                rb.constraints = RigidbodyConstraints2D.FreezePosition;
+                if(rb != null)
+                {
+                    rb.constraints = RigidbodyConstraints2D.FreezePosition;
+                }
             }
 
             foreach (Rigidbody2D rb in rbsJP)
             {
-                rb.constraints = RigidbodyConstraints2D.None;
+                if(rb != null)
+                {
+                    rb.constraints = RigidbodyConstraints2D.None;
+                }
             }
         }
     }

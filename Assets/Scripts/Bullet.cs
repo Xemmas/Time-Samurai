@@ -14,7 +14,6 @@ public class Bullet : MonoBehaviour
         //Layer 6 is Enemies layers
         if (collision.gameObject.layer == 6)
         {
-            Debug.Log("hit enemy");
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
         }

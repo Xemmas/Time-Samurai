@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
     public Camera cam;
     
+    float distance = 60;
 
     // Update is called once per frame
     void Update()
@@ -18,6 +19,19 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.position=new Vector2(transform.position.x,transform.position.y - distance); 
+            
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            transform.position=new Vector2(transform.position.x,transform.position.y + distance); 
+        }
+
+        
     }
 
     void FixedUpdate()

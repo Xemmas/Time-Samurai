@@ -6,10 +6,12 @@ public class Enemy : MonoBehaviour
 {
     public int maxHealth = 100;
     int currentHealth;
+    public Rigidbody2D rb;
 
     // Update is called once per frame
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
     }
 

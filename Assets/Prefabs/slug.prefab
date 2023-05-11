@@ -173,3 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   lifespan: 2
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64

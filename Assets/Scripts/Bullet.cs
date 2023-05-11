@@ -6,11 +6,15 @@ public class Bullet : MonoBehaviour
 {
     public int damage;
     public float lifespan;
+
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemies")
+
+        //Layer 6 is Enemies layers
+        if (collision.gameObject.layer == 6)
         {
+            Debug.Log("hit enemy");
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
         }

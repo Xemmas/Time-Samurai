@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4249380866501589599}
   - component: {fileID: 5319662437455638782}
   - component: {fileID: 2965528995161997905}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Buckshot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,3 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   lifespan: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64

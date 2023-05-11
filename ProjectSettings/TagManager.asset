@@ -6,6 +6,8 @@ TagManager:
   tags:
   - wall
   - Enemies
+  - earlyJP
+  - dieselPunk
   layers:
   - Default
   - TransparentFX

@@ -4,26 +4,30 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Animator animator;
+
     public float moveSpeed = 5.0f;
     public Rigidbody2D rb;
-    Vector2 movement;
+    Vector2 movementDirection;
     Vector2 mousePos;
     public Camera cam;
     
     float distance = 60;
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+
     // Update is called once per frame
     void Update()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+    {   
+        movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             transform.position=new Vector2(transform.position.x,transform.position.y - distance); 
-            
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -31,15 +35,30 @@ public class PlayerMovement : MonoBehaviour
             transform.position=new Vector2(transform.position.x,transform.position.y + distance); 
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            animator.SetTrigger("Shoot");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            animator.SetTrigger("Melee");
+        }
+
+        if (Input.GetKey(KeyCode.A)) 
+        {
+            animator.SetBool("Move", true);
+        }
+
+        else 
+        {
+            animator.SetBool("Move", false);
+        }
+
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
-        Vector2 lookDir = mousePos - rb.position;   
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f; 
-        rb.rotation = angle;
+        rb.velocity = movementDirection * moveSpeed;
     }
 }

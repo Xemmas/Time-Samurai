@@ -1,17 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+[Serializable]
+public class Item 
 {
-    public enum ItemType
+    public enum ItemType 
     {
-        Hairpin,
-        HairpinAlt,
+        Armor,
+        ArmorAlt,
         Bow,
         BowAlt,
-        Armor,
-        ArmorAlt
+        Hairpin,
+        HairpinAlt,
     }
 
     public ItemType itemType;
@@ -21,15 +23,14 @@ public class Item : MonoBehaviour
     {
         switch(itemType)
         {
-            default:
-            case ItemType.Hairpin:      return ItemAssets.Instance.hairpinSprite;
-            case ItemType.HairpinAlt:   return ItemAssets.Instance.hairpinAltSprite;
-            case ItemType.Bow:          return ItemAssets.Instance.bowSprite;
-            case ItemType.BowAlt:       return ItemAssets.Instance.bowAltSprite;
-            case ItemType.Armor:        return ItemAssets.Instance.armorSprite;
-            case ItemType.ArmorAlt:     return ItemAssets.Instance.armorAltSprite;
+            default: 
+            case ItemType.Armor: return ItemAssets.Instance.armorSprite;
+            case ItemType.ArmorAlt: return ItemAssets.Instance.armorAltSprite;
+            case ItemType.Bow: return ItemAssets.Instance.bowSprite;
+            case ItemType.BowAlt: return ItemAssets.Instance.bowAltSprite;
+            case ItemType.Hairpin: return ItemAssets.Instance.hairpinSprite;
+            case ItemType.HairpinAlt: return ItemAssets.Instance.hairpinAltSprite;
         }
-
     }
     
 }

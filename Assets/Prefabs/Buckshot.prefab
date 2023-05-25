@@ -29,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 8038503120089321562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.967, y: -0.035, z: 0}
-  m_LocalScale: {x: 0.17468768, y: 0.17468768, z: 0.17468768}
+  m_LocalScale: {x: 0.9831613, y: 0.9831613, z: 0.9831613}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1941755744048454219
 SpriteRenderer:
@@ -163,6 +163,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   lifespan: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 64

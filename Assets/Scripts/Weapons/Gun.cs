@@ -17,9 +17,6 @@ public class Gun : MonoBehaviour
     public int magSize, bulletsPerTap;
     int ammoLeft, ammoShot;
 
-    //Reference
-    public Transform attackPoint;
-
 
     // Start is called before the first frame update
     void Start()
@@ -38,15 +35,21 @@ public class Gun : MonoBehaviour
     {
         readyToShoot = false;   
 
+        Vector3 shootDirection;
+        shootDirection = Input.mousePosition;
+        shootDirection.z = 0.0f;
+        shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
+        shootDirection = shootDirection-transform.position;
+
         //Spawn bullet at attack point
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, attackPoint.rotation);
+        GameObject currentBullet = Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(0,0,0)));
 
         //rotate the bullet to make it spread
         currentBullet.transform.Rotate(0f, 0f, spread);
 
         //launch the bullet
         Rigidbody2D rb = currentBullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(attackPoint.up * shootForce, ForceMode2D.Impulse);
+        rb.velocity = new Vector2(shootDirection.x * 5f, shootDirection.y * 5f);
 
         ammoLeft--;
         ammoShot--;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemAssets : MonoBehaviour
 {
-    public static ItemAssets Instance {get; private set; }
+    public static ItemAssets Instance {get; private set;}
 
     private void Awake()
     {
@@ -13,10 +13,11 @@ public class ItemAssets : MonoBehaviour
 
     public Transform pfItemWorld;
 
-    public Sprite hairpinSprite;
-    public Sprite hairpinAltSprite;
-    public Sprite bowSprite;
-    public Sprite bowAltSprite;
     public Sprite armorSprite;
     public Sprite armorAltSprite;
+    public Sprite bowSprite;
+    public Sprite bowAltSprite;
+    public Sprite hairpinSprite;
+    public Sprite hairpinAltSprite;
+
 }

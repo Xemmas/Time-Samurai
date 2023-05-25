@@ -10,13 +10,13 @@ public class ItemWorld : MonoBehaviour
 
         ItemWorld itemWorld = transform.GetComponent<ItemWorld>();
         itemWorld.SetItem(item);
+
         return itemWorld;
     }
-
     private Item item;
 
-    private SpriteRenderer  spriteRenderer;
-    private void Awake()
+    private SpriteRenderer spriteRenderer;
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -36,5 +36,6 @@ public class ItemWorld : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 
 }
